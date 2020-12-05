@@ -61,17 +61,21 @@
   .contentContainer {
     margin: 0 auto;
     width: 85%;
+    margin: 20px auto;
     @media (min-width: 768px) and (max-width: 1024px) {
       // tablet size
       width: 80%;
+      margin: 50px auto;
     }
     @media (min-width: 1025px) and (max-width: 1280px) {
       // laptop size
       width: 80%;
+      margin: 50px auto;
     }
     @media (min-width: 1281px) {
       // desktop size
-      width: 75%;      
+      width: 75%;     
+      margin: 50px auto; 
     }
   }
 }
