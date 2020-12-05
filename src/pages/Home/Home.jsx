@@ -1,7 +1,11 @@
 import './Home.scss';
 import React, { Component } from 'react';
-import { Template } from '../../components';
-import { Row, Col, Select, Form, Input, message } from 'antd';
+import { Row, Col } from 'antd';
+
+import {
+  Template,
+  ContentCard
+} from '../../components';
 
 class Home extends Component {
   constructor(props) {
@@ -11,10 +15,10 @@ class Home extends Component {
     // };
   }
 
-  render() {    
+  render() {
     return (
       <Template>
-        <p>Hello</p>
+        <ContentCard />
       </Template >
     );
   }
