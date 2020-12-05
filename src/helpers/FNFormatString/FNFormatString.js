@@ -1,5 +1,4 @@
 export const formatDate = (date) => {
-  console.log('data', date);
   if (date) {
     const newDate = new Date(date),
     day = ("0" + newDate.getDate()).slice(-2),
