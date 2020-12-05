@@ -3,6 +3,7 @@ import Template from './common/Template/Template';
 
 // feature component
 import ContentCard from './feature/ContentCard/ContentCard';
+import ContentDetail from './feature/ContentDetail/ContentDetail';
 
 export {
   // common component
@@ -10,4 +11,5 @@ export {
 
   // feature component
   ContentCard,
+  ContentDetail
 }

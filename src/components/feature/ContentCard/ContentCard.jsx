@@ -7,13 +7,19 @@ import {
   EnvironmentFilled,
   SoundFilled
 } from '@ant-design/icons';
+import { ContentDetail } from '../../';
 import { formatDate } from '../../../helpers';
 
 const ContentCard = props => {
   const { data } = props;
 
+  const [isDisplayContentDetail, setIsDisplayContentDetail] = useState(false);
+  const triggerContentDetail = () => {
+    setIsDisplayContentDetail(!isDisplayContentDetail);
+  };
 
   return (
+    <div className="contentCard" onClick={triggerContentDetail}>
       {/* Header Section */}
       <div className="header">
         <img src={data.company_logo ? data.company_logo : '/default_company.jpg'} />
@@ -41,6 +47,7 @@ const ContentCard = props => {
           <span className="label">{data.type}</span>
         </div>
       </div>
+      <ContentDetail triggerContentDetail={triggerContentDetail} isDisplay={isDisplayContentDetail} data={data} />
     </div>
   );
 };
