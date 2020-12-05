@@ -1,0 +1,36 @@
+@import '../../../variable';
+
+.layout {
+  
+  .navbar {
+    background-color: $color_white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .logo{
+      width: auto;
+      height: 100%;
+      img {
+        width: auto;
+        height: 50%;
+      }
+    }
+    .menuList {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .menuIconContainer{
+        border-bottom: none;
+        .menuIcon {
+          margin: 0;
+          font-size: 18px;
+        }
+      }
+      .menuIconContainer:hover {
+        color: grey;
+        border-bottom: none;
+      }      
+    }
+  }
+}
