@@ -31,7 +31,7 @@ const Template = props => {
           {horizontalMenu}
         </div>
       </Header>
-      <Content>
+      <Content className="contentContainer">
         {props.children}
       </Content>
     </Layout >
