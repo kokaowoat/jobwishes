@@ -1,7 +1,7 @@
 import './Template.scss';
 import React from 'react';
 import PropsTypes from 'prop-types';
-import { Layout, Drawer, Menu, Row, Col } from 'antd';
+import { Layout, Menu } from 'antd';
 import {
   HomeFilled,
   SearchOutlined
