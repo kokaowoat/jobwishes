@@ -1,0 +1,51 @@
+@import '../../../variable';
+
+.contentCard {
+  background: $color_white;
+  padding: 20px 10px;
+  margin: 1px;
+  cursor: pointer;
+  .header {
+    display: flex;
+    align-items: center;
+    img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+    .title {
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+      .name {
+        font-family: MonserratRegular;
+      }
+      .createdAt {
+        font-size: 8px;
+      }
+    }    
+  }
+  .imageSection {
+    width: 100%;
+    margin: 10px 0;
+    img {
+      width: 100%;
+    }
+
+  }
+  .detailContainer {
+    .detail {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      .label {
+        font-size: 12px;
+        margin-left: 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    
+  }
+}

@@ -18,7 +18,20 @@ class Home extends Component {
   render() {
     return (
       <Template>
-        <ContentCard />
+        <Row>
+          <Col xs={24} sm={12} md={8} lg={8}>
+            <ContentCard />
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={8}>
+            <ContentCard />
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={8}>
+            <ContentCard />
+          </Col>
+          <Col xs={24} sm={12} md={8} lg={8}>
+            <ContentCard />
+          </Col>
+        </Row>        
       </Template >
     );
   }
