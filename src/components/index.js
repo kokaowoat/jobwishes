@@ -1,5 +1,13 @@
+// common component
 import Template from './common/Template/Template';
 
+// feature component
+import ContentCard from './feature/ContentCard/ContentCard';
+
 export {
-  Template
+  // common component
+  Template,
+
+  // feature component
+  ContentCard,
 }
