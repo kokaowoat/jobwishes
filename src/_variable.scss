@@ -1,0 +1,21 @@
+// font
+// @import url('https://fonts.googleapis.com/css?family=Kanit:100,300&subset=thai');
+
+@font-face {
+  font-family: 'MonserratLight';
+  src: url('./fonts/Montserrat-Light.ttf');
+}
+
+@font-face {
+  font-family: 'MonserratRegular';
+  src: url('./fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'MonserratBold';
+  src: url('./fonts/Montserrat-Medium.ttf');
+}
+
+// color
+$color_white: #ffffff;
+$color_light_grey: #fafafa;
