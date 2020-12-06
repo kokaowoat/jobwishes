@@ -1,0 +1,10 @@
+@import '../../../variable';
+
+.JWButton {
+  margin: 0 5px;
+}
+.JWButton:hover{
+  color: $color_white;
+  background-color: $color_navy;
+  border-color: $color_white;
+}
