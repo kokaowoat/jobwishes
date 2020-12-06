@@ -24,9 +24,11 @@ const Template = props => {
   return (
     <Layout id="top" className="layout" >
       <Header id="navbar" className="navbar">
-        <div className="logo">
-          <img src='/logo.jpg' />
-        </div>
+        <a href="/">
+          <div className="logo">
+            <img src='/logo.jpg' alt='job' />
+          </div>
+        </a>
         <div className="menuList">
           {horizontalMenu}
         </div>

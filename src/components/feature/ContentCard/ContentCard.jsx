@@ -22,7 +22,7 @@ const ContentCard = props => {
     <div className="contentCard" onClick={triggerContentDetail}>
       {/* Header Section */}
       <div className="header">
-        <img src={data.company_logo ? data.company_logo : '/default_company.jpg'} />
+        <img src={data.company_logo ? data.company_logo : '/default_company.jpg'} alt='job default' />
         <div className="title">
           <span className="name">{data.company}</span>
           <span className="createdAt"><CalendarFilled /> {formatDate(data.created_at)}</span>
@@ -30,7 +30,7 @@ const ContentCard = props => {
       </div>
       {/* Image Section */}
       <div className="imageSection">
-        <img src={data.company_logo ? data.company_logo : '/default_company.jpg'} />
+        <img src={data.company_logo ? data.company_logo : '/default_company.jpg'} alt='job default' />
       </div>
       {/* Short Detail ex. title, place, type*/}
       <div className="detailContainer">
@@ -47,7 +47,7 @@ const ContentCard = props => {
           <span className="label">{data.type}</span>
         </div>
       </div>
-      <ContentDetail triggerContentDetail={triggerContentDetail} isDisplay={isDisplayContentDetail} data={data} />
+      <ContentDetail isDisplay={isDisplayContentDetail} data={data} />
     </div>
   );
 };
