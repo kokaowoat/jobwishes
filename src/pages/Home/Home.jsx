@@ -1,7 +1,9 @@
 import './Home.scss';
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 import { Row, Col } from 'antd';
 
+import {fetchGetJob} from '../../actions';
 import {
   Template,
   ContentCard
@@ -10,6 +12,7 @@ import {
 class Home extends Component {
   constructor(props) {
     super(props);
+    this.props.dispatch(fetchGetJob());
     // this.state = {
     //   ip: '',
     // };
@@ -178,4 +181,9 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => {
+   const { getJob } = state;   
+   return { getJob: getJob.data };
+ };
+
+export default connect(mapStateToProps)(Home);
