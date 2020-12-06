@@ -1,36 +1,55 @@
 import './Template.scss';
-import React from 'react';
+import React, { useState } from 'react';
 import PropsTypes from 'prop-types';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Input } from 'antd';
+
 import {
   HomeFilled,
-  SearchOutlined
+  SearchOutlined,
+  AudioOutlined
 } from '@ant-design/icons';
 
 const { Header, Content } = Layout;
 
 const Template = props => {
-  const horizontalMenu = (
-    <Menu mode="horizontal">
-      <Menu.Item key="home" className="menuIconContainer">
-        <HomeFilled className="menuIcon" />
-      </Menu.Item>
-      <Menu.Item key="search" className="menuIconContainer">
-        <SearchOutlined className="menuIcon" />
-      </Menu.Item>
-    </Menu>
+  const [searchContent, setSearchContent] = useState(null);
+
+  const onChangeSearchBox = e => {
+    console.log(e.target.value);
+    if (e.target.value && e.target.value != "") {
+      setSearchContent(e.target.value);
+    } else {
+      setSearchContent(null);
+    }
+  }
+  const handleSearch = e => {
+    console.log('searchContent', searchContent);
+    // TODO check searchContent is null or not
+  }
+
+  const suffix = (
+    <SearchOutlined
+      className="searchIcon"
+      onClick={handleSearch}
+    />
   );
 
   return (
     <Layout id="top" className="layout" >
       <Header id="navbar" className="navbar">
-        <a href="/">
-          <div className="logo">
+        <div className="logo">
+          <a href="/">
             <img src='/logo.jpg' alt='job' />
-          </div>
-        </a>
+          </a>
+        </div>
         <div className="menuList">
-          {horizontalMenu}
+          <Input
+            placeholder="input search text"
+            suffix={suffix}
+            onPressEnter={handleSearch}
+            onChange={onChangeSearchBox}
+            className="searchBox"
+          />
         </div>
       </Header>
       <Content className="contentContainer">
