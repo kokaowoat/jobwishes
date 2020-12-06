@@ -1,18 +1,22 @@
 import './ContentDetail.scss';
-import React, { useState } from 'react';
+import React from 'react';
 import PropsTypes from 'prop-types';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 import {
   BankFilled,
   EnvironmentFilled,
   SoundFilled,
-  ProfileFilled,
 } from '@ant-design/icons';
 import { JWButton } from '../../';
 
 const ContentDetail = props => {
   const { data, isDisplay } = props;
-  // console.log('data.how_to_apply', data.how_to_apply);
+
+  const extractLink = (text) => {
+    const link = text.match(/href="([^"]*)/)[1];
+    return link ? link : null;
+  }
+
   return (
     <Modal
       title={null}
@@ -21,7 +25,7 @@ const ContentDetail = props => {
       className="contentDetailContainer"
     >
       <div className="header">
-        <img src={data.company_logo ? data.company_logo : '/default_company.jpg'} />
+        <img src={data.company_logo ? data.company_logo : '/default_company.jpg'} alt='job default' />
         <span className="title">{data.title}</span>
       </div>
       <hr />
@@ -45,10 +49,8 @@ const ContentDetail = props => {
       <hr />
       <div className="footer">
         <JWButton href={data.company_url} target="_blank">Visit Company</JWButton>
-        <JWButton>Apply</JWButton>
+        <JWButton href={extractLink(data.how_to_apply)} target="_blank">Apply</JWButton>
       </div>
-      {/* TODO concat to link */}
-      {/* <div dangerouslySetInnerHTML={{ __html: data.how_to_apply }} />       */}
     </Modal>
   );
 };
