@@ -1,12 +1,10 @@
 import './Template.scss';
 import React, { useState } from 'react';
 import PropsTypes from 'prop-types';
-import { Layout, Menu, Input } from 'antd';
+import { Layout, Input } from 'antd';
 
 import {
-  HomeFilled,
   SearchOutlined,
-  AudioOutlined
 } from '@ant-design/icons';
 
 const { Header, Content } = Layout;
@@ -16,7 +14,7 @@ const Template = props => {
 
   const onChangeSearchBox = e => {
     console.log(e.target.value);
-    if (e.target.value && e.target.value != "") {
+    if (e.target.value && e.target.value !== "") {
       setSearchContent(e.target.value);
     } else {
       setSearchContent(null);
