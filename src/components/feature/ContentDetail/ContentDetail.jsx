@@ -13,8 +13,13 @@ const ContentDetail = props => {
   const { data, isDisplay } = props;
 
   const extractLink = (text) => {
-    const link = text.match(/href="([^"]*)/)[1];
-    return link ? link : null;
+    if (text.match(/href="([^"]*)/)) {
+      const link = text.match(/href="([^"]*)/)[1];
+      return link ? link : null;
+    } else {
+      return null;
+    }
+
   }
 
   return (
@@ -49,7 +54,7 @@ const ContentDetail = props => {
       <hr />
       <div className="footer">
         <JWButton href={data.company_url} target="_blank">Visit Company</JWButton>
-        <JWButton href={extractLink(data.how_to_apply)} target="_blank">Apply</JWButton>
+        {extractLink(data.how_to_apply) ? <JWButton href={extractLink(data.how_to_apply)} target="_blank">Apply</JWButton> : null}
       </div>
     </Modal>
   );
