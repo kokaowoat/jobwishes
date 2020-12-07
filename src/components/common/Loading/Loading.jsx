@@ -4,7 +4,7 @@ import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
 const antIcon = <LoadingOutlined className="loading" spin />;
-const Loading = props => {
+const Loading = () => {
   return (
     <div className="loadingContainer">
       <Spin className="loadingIcon" indicator={antIcon} />

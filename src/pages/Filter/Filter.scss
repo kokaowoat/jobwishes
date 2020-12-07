@@ -1,0 +1,29 @@
+@import '../../variable';
+
+.filterContainer {
+  .labelResult {
+    font-family: MonserratRegular;
+    .content { 
+      font-family: MonserratLight;
+    }
+  }
+  .notFound {
+    height: calc(100vh - 126px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: 768px) and (max-width: 1024px) {
+      // tablet size
+      height: calc(100vh - 186px);
+    }
+    @media (min-width: 1025px) and (max-width: 1280px) {
+      // laptop size
+      height: calc(100vh - 186px);
+    }
+    @media (min-width: 1281px) {
+      // desktop size
+      height: calc(100vh - 186px);
+    }
+  }
+}

@@ -10,10 +10,8 @@ import {
 const { Header, Content } = Layout;
 
 const Template = props => {
-  const [searchContent, setSearchContent] = useState(null);
-
+  const [searchContent, setSearchContent] = useState(props.description ? props.description : null);
   const onChangeSearchBox = e => {
-    console.log(e.target.value);
     if (e.target.value && e.target.value !== "") {
       setSearchContent(e.target.value);
     } else {
@@ -21,8 +19,11 @@ const Template = props => {
     }
   }
   const handleSearch = e => {
-    console.log('searchContent', searchContent);
-    // TODO check searchContent is null or not
+    if (searchContent) {
+      props.navigate(`/filter?description=${searchContent}`);
+    } else {
+      props.navigate('/');
+    }
   }
 
   const suffix = (
@@ -42,11 +43,12 @@ const Template = props => {
         </div>
         <div className="menuList">
           <Input
-            placeholder="input search text"
+            placeholder="search"
             suffix={suffix}
             onPressEnter={handleSearch}
             onChange={onChangeSearchBox}
             className="searchBox"
+            value={searchContent}
           />
         </div>
       </Header>
@@ -58,7 +60,8 @@ const Template = props => {
 };
 
 Template.propTypes = {
-  props: PropsTypes.any,
+  navigate: PropsTypes.func.isRequired,
+  description: PropsTypes.string,
   children: PropsTypes.any,
 };
 
