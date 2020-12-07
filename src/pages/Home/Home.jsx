@@ -1,4 +1,3 @@
-import './Home.scss';
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Row, Col } from 'antd';
@@ -22,17 +21,20 @@ class Home extends Component {
 
    componentDidMount = () => {
       window.addEventListener('scroll', this.handleInfiniteScroll);
-      this.props.dispatch(fetchGetJob(1));
+      this.props.dispatch(fetchGetJob(1));      
    }
 
    UNSAFE_componentWillReceiveProps(nextProps) {
       this.setState({ isLoading: false });
       if (nextProps.jobs && nextProps.jobs !== this.props.jobs) {
          const newJobList = this.state.jobs.concat(nextProps.jobs);
-         console.log('newJobList', newJobList);
          this.setState({ jobs: newJobList });
       }
    }
+   componentWillUnmount = ()=> {
+      window.removeEventListener('scroll', this.handleInfiniteScroll);
+   }
+
 
    handleInfiniteScroll = () => {
       // Fetch when scroll to bottom of page
@@ -50,7 +52,7 @@ class Home extends Component {
          </Col>
       ) : null;
       return (
-         <Template>
+         <Template navigate={this.props.history.push}>
             { this.state.isLoading ? <Loading /> : null}
             <Row>
                {contentcardList}
