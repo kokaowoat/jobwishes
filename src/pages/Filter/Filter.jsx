@@ -32,22 +32,28 @@ class Filter extends Component {
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({ isLoading: false });
-    const search = this.props.location.search;
-    const params = new URLSearchParams(search);
-    const description = params.get('description');
-    if (description && this.state.description !== description) {
+    // if change search 
+    if (nextProps.location && nextProps.location !== this.props.location) {
+      const search = nextProps.location.search;
+      const params = new URLSearchParams(search);
+      const description = params.get('description');
       this.setState({
         isLoading: true,
         filterJobNextPage: 2,
         filterJobs: [],
         description,
       });
-      this.props.dispatch(fetchFilterJob(1, description));
+      nextProps.dispatch(fetchFilterJob(1, description));
     }
+    // if loaded more filtered jobs
     if (nextProps.filterJobs && nextProps.filterJobs !== this.props.filterJobs) {
       const newFilterJobList = this.state.filterJobs.concat(nextProps.filterJobs);
       this.setState({ filterJobs: newFilterJobList });
     }
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.handleInfiniteScroll);
   }
 
   handleInfiniteScroll = () => {
@@ -66,12 +72,23 @@ class Filter extends Component {
       </Col>
     ) : null;
     return (
-      <Template>
-        { this.state.isLoading ? <Loading /> : null}
-        <p>Your result for : {this.state.description}</p>
-        <Row>
-          {filteredContentcardList}
-        </Row>
+      <Template navigate={this.props.history.push} description={this.state.description}>
+        <div className="filterContainer">
+          {this.state.isLoading ? <Loading /> : null}
+          <div>
+            <span className="labelResult">Your result for: </span>
+            <span className="content">{this.state.description}</span>
+          </div>
+          {this.state.filterJobs.length > 0 ?
+            <Row>
+              {filteredContentcardList}
+            </Row>
+            :
+            <div className="notFound">
+              <span>Search not found</span>
+            </div>
+          }
+        </div>
       </Template >
     );
   }
