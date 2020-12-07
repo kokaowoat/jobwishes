@@ -9,7 +9,6 @@ import {
    ContentCard,
    Loading
 } from '../../components';
-import { jobs } from '../../reducers/Job';
 
 class Home extends Component {
    constructor(props) {
