@@ -1,0 +1,67 @@
+@import '../../../variable';
+
+.layout {  
+  .navbar {
+    padding: 0 25px;
+    @media (min-width: 768px) and (max-width: 1024px) {
+      // tablet size
+      padding: 0 50px;
+    }
+    @media (min-width: 1025px) and (max-width: 1280px) {
+      // laptop size
+      padding: 0 50px;
+    }
+    @media (min-width: 1281px) {
+      // desktop size
+      padding: 0 100px;
+    }
+    background-color: $color_white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .logo{
+      width: auto;
+      height: 100%;
+      img {
+        width: auto;
+        height: 50%;
+      }
+    }
+    .menuList {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .searchBox {
+        border-radius: 30px;
+        color: $color_light_grey3;
+        font-size: 14px;        
+      }
+      .ant-input-affix-wrapper-focused {
+        border-color: $color_navy;
+        color: $color_navy;
+        box-shadow: none;
+      }
+    }
+  }
+  .contentContainer {
+    margin: 0 auto;
+    width: 85%;
+    margin: 20px auto;
+    @media (min-width: 768px) and (max-width: 1024px) {
+      // tablet size
+      width: 80%;
+      margin: 50px auto;
+    }
+    @media (min-width: 1025px) and (max-width: 1280px) {
+      // laptop size
+      width: 80%;
+      margin: 50px auto;
+    }
+    @media (min-width: 1281px) {
+      // desktop size
+      width: 75%;     
+      margin: 50px auto; 
+    }
+  }
+}
