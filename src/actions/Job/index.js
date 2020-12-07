@@ -2,12 +2,12 @@
 export const GET_JOB_SUCCESS = 'GET_JOB_SUCCESS';
 export const GET_JOB_FAILURE = 'GET_JOB_FAILURE';
 
-// TODO get page numbre
+const host = process.env.REACT_APP_API_HOST;
 export function fetchGetJob(page) {
   return async dispatch => {
     const dateTime = new Date();
     try {
-      const res = await fetch(`http://jobs.github.com/positions.json?page=${page}`);
+      const res = await fetch(`${host}?page=${page}`);
       const data = await res.json();      
       if (res.status === 200) {
         return await dispatch({
