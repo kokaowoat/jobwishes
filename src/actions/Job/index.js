@@ -9,12 +9,12 @@ export function fetchGetJob(page) {
   return async dispatch => {
     const dateTime = new Date();
     try {
-      const res = await fetch(`${host}?page=${page}`);
-      const data = await res.json();      
+      const res = await fetch(`${host}/jobs/position?page=${page}`);   
+      const data = await res.json(); 
       if (res.status === 200) {
         return await dispatch({
           type: GET_JOB_SUCCESS,
-          data,
+          data: data.body,
           status: res.status,
           dateTime
         });
@@ -42,12 +42,12 @@ export function fetchFilterJob(page, description) {
   return async dispatch => {
     const dateTime = new Date();
     try {
-      const res = await fetch(`${host}?page=${page}&description=${description}`);
+      const res = await fetch(`${host}/jobs/position-filter?page=${page}&description=${description}`);
       const data = await res.json();      
       if (res.status === 200) {
         return await dispatch({
           type: FILTER_JOB_SUCCESS,
-          data,
+          data: data.body,
           status: res.status,
           dateTime
         });
